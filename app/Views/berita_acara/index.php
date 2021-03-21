@@ -13,21 +13,29 @@
 					</tr>
 					</thead>
 					<tbody>
-					<?php foreach ($beritaAcara as $b) { ?>
+					<?php
+					foreach ($beritaAcara as $b) { ?>
 						<tr>
 							<td class="text-center"><?= $b['beritaAcaraId'] ?></td>
 							<td><?= $b['beritaAcaraNama'] ?></td>
 							<td class="text-center"><?= $b['beritaAcaraTanggal'] ?></td>
 							<td class="text-center">
-								<?php if ($b['posting']) { ?>
+								<?php
+								if ($b['posting']) { ?>
 									<span class="badge badge-success">Diposting</span>
-								<?php } else { ?>
+									<?php
+								} else { ?>
 									<a href="" role="button" class="btn btn-sm btn-outline-danger">Posting</a>
-								<?php } ?>
+									<?php
+								} ?>
 							</td>
-							<td><?= $b['beritaAcaraId'] ?></td>
+							<td>
+								<?= $b['beritaAcaraId'] ?>
+								<a href="<?= base_url('berita-acara/preview?beritaAcaraId=' . $b['beritaAcaraId']) ?>" role="button" class="btn btn-sm btn-outline-danger" target="_blank">Lihat Surat</a>
+							</td>
 						</tr>
-					<?php } ?>
+						<?php
+					} ?>
 					</tbody>
 				</table>
 			</div>

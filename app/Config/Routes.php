@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -41,6 +41,7 @@ $routes->group('data-master', function ($routes) {
 });
 $routes->group('berita-acara', function ($routes) {
 	$routes->get('', 'Berita_acara::index');
+	$routes->get('preview', 'Berita_acara::preview');
 });
 
 /*
