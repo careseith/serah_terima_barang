@@ -41,6 +41,7 @@ $routes->group('data-master', function ($routes) {
 });
 $routes->group('berita-acara', function ($routes) {
 	$routes->get('', 'Berita_acara::index');
+	$routes->match(['get','post'], 'tambah', 'Berita_acara::tambah');
 	$routes->get('preview', 'Berita_acara::preview');
 });
 

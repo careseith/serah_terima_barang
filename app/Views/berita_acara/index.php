@@ -1,6 +1,9 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="card shadow-lg">
+			<div class="card-header">
+				<a href="<?= base_url('berita-acara/tambah') ?>" role="button" class="btn btn-sm btn-outline-primary float-right">Tambah</a>
+			</div>
 			<div class="card-body">
 				<table class="table" style="width: 100%">
 					<thead class="text-center">
@@ -30,7 +33,6 @@
 								} ?>
 							</td>
 							<td>
-								<?= $b['beritaAcaraId'] ?>
 								<a href="<?= base_url('berita-acara/preview?beritaAcaraId=' . $b['beritaAcaraId']) ?>" role="button" class="btn btn-sm btn-outline-danger" target="_blank">Lihat Surat</a>
 							</td>
 						</tr>

@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS `tb_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Membuang data untuk tabel serahterimabarang.tb_barang: ~0 rows (lebih kurang)
-DELETE FROM `tb_barang`;
 /*!40000 ALTER TABLE `tb_barang` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_barang` ENABLE KEYS */;
 
@@ -66,11 +65,30 @@ CREATE TABLE IF NOT EXISTS `tb_berita_acara` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Membuang data untuk tabel serahterimabarang.tb_berita_acara: ~0 rows (lebih kurang)
-DELETE FROM `tb_berita_acara`;
 /*!40000 ALTER TABLE `tb_berita_acara` DISABLE KEYS */;
-INSERT INTO `tb_berita_acara` (`beritaAcaraId`, `beritaAcaraNama`, `beritaAcaraTanggal`, `beritaAcaraTempat`, `pihakSatuId`, `pihakSatuNama`, `pihakSatuJabatan`, `pihakSatuDivisi`, `pihakDuaId`, `pihakDuaNama`, `pihakDuaJabatan`, `pihakDuaDivisi`, `beritaAcaraBodySatu`, `beritaAcaraBodyDua`, `ttd1`, `ttd2`, `ttd3`, `Kolom 18`, `posting`) VALUES
-	(1, 'asdasd', '2021-03-13', 'sdf', 1, 'sdf', 'sdf', 'sdf', 2, 'sdf', 'sf', 'sdf', 'sdf', 'sdf', NULL, NULL, NULL, NULL, b'0');
+REPLACE INTO `tb_berita_acara` (`beritaAcaraId`, `beritaAcaraNama`, `beritaAcaraTanggal`, `beritaAcaraTempat`, `pihakSatuId`, `pihakSatuNama`, `pihakSatuJabatan`, `pihakSatuDivisi`, `pihakDuaId`, `pihakDuaNama`, `pihakDuaJabatan`, `pihakDuaDivisi`, `beritaAcaraBodySatu`, `beritaAcaraBodyDua`, `ttd1`, `ttd2`, `ttd3`, `Kolom 18`, `posting`) VALUES
+	(1, 'asdasd', '2021-03-14', 'sdf', 1, 'sdf', 'sdf', 'sdf', 2, 'sdf', 'sf', 'sdf', 'sdf', 'sdf', NULL, NULL, NULL, NULL, b'0');
 /*!40000 ALTER TABLE `tb_berita_acara` ENABLE KEYS */;
+
+-- membuang struktur untuk table serahterimabarang.tb_berita_acara_barang
+DROP TABLE IF EXISTS `tb_berita_acara_barang`;
+CREATE TABLE IF NOT EXISTS `tb_berita_acara_barang` (
+  `beritaAcaraBarangId` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `beritaAcaraId` int(11) unsigned NOT NULL,
+  `beritaAcaraBarangNama` varchar(255) NOT NULL,
+  `beritaAcaraBarangMerk` varchar(255) NOT NULL,
+  `beritaAcaraBarangAlat` varchar(255) NOT NULL,
+  `beritaAcaraBarangJumlah` int(11) NOT NULL,
+  PRIMARY KEY (`beritaAcaraBarangId`),
+  KEY `FK_tb_berita_acara_barang_tb_berita_acara` (`beritaAcaraId`),
+  CONSTRAINT `FK_tb_berita_acara_barang_tb_berita_acara` FOREIGN KEY (`beritaAcaraId`) REFERENCES `tb_berita_acara` (`beritaAcaraId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Membuang data untuk tabel serahterimabarang.tb_berita_acara_barang: ~0 rows (lebih kurang)
+/*!40000 ALTER TABLE `tb_berita_acara_barang` DISABLE KEYS */;
+REPLACE INTO `tb_berita_acara_barang` (`beritaAcaraBarangId`, `beritaAcaraId`, `beritaAcaraBarangNama`, `beritaAcaraBarangMerk`, `beritaAcaraBarangAlat`, `beritaAcaraBarangJumlah`) VALUES
+	(1, 1, 'Kabel USB Type-C', 'SCOPY', 'HT 18', 1);
+/*!40000 ALTER TABLE `tb_berita_acara_barang` ENABLE KEYS */;
 
 -- membuang struktur untuk table serahterimabarang.tb_divisi
 DROP TABLE IF EXISTS `tb_divisi`;
@@ -81,9 +99,8 @@ CREATE TABLE IF NOT EXISTS `tb_divisi` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Membuang data untuk tabel serahterimabarang.tb_divisi: ~2 rows (lebih kurang)
-DELETE FROM `tb_divisi`;
 /*!40000 ALTER TABLE `tb_divisi` DISABLE KEYS */;
-INSERT INTO `tb_divisi` (`divisiId`, `divisiNama`) VALUES
+REPLACE INTO `tb_divisi` (`divisiId`, `divisiNama`) VALUES
 	(1, 'Teknologi Informasi'),
 	(2, 'TPKB');
 /*!40000 ALTER TABLE `tb_divisi` ENABLE KEYS */;
@@ -97,9 +114,8 @@ CREATE TABLE IF NOT EXISTS `tb_jabatan` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Membuang data untuk tabel serahterimabarang.tb_jabatan: ~2 rows (lebih kurang)
-DELETE FROM `tb_jabatan`;
 /*!40000 ALTER TABLE `tb_jabatan` DISABLE KEYS */;
-INSERT INTO `tb_jabatan` (`jabatanId`, `jabatanNama`) VALUES
+REPLACE INTO `tb_jabatan` (`jabatanId`, `jabatanNama`) VALUES
 	(1, 'Pemelihara ITC'),
 	(2, 'Operator HT');
 /*!40000 ALTER TABLE `tb_jabatan` ENABLE KEYS */;
@@ -119,9 +135,8 @@ CREATE TABLE IF NOT EXISTS `tb_pegawai` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Membuang data untuk tabel serahterimabarang.tb_pegawai: ~2 rows (lebih kurang)
-DELETE FROM `tb_pegawai`;
 /*!40000 ALTER TABLE `tb_pegawai` DISABLE KEYS */;
-INSERT INTO `tb_pegawai` (`pegawaiId`, `pegawaiNama`, `divisiId`, `jabatanId`) VALUES
+REPLACE INTO `tb_pegawai` (`pegawaiId`, `pegawaiNama`, `divisiId`, `jabatanId`) VALUES
 	(1, 'Aidil Fitri', 1, 1),
 	(2, 'Rabiyanoor', 2, 2);
 /*!40000 ALTER TABLE `tb_pegawai` ENABLE KEYS */;

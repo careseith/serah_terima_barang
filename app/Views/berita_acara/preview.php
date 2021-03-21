@@ -23,7 +23,7 @@
 <hr style="border-top: 1px solid black">
 Pada hari ini,
 <u class="font-weight-bold"><?= getHari(date('l', strtotime($berita['beritaAcaraTanggal']))) ?> tanggal <?= terbilang(date('d', strtotime($berita['beritaAcaraTanggal']))) ?> bulan <?= getBulan(date('m', strtotime($berita['beritaAcaraTanggal']))) ?> tahun <?= terbilang(date('Y', strtotime($berita['beritaAcaraTanggal']))) ?> (<?= date('d-m-Y', strtotime($berita['beritaAcaraTanggal'])) ?>),</u> bertempat di
-<b><?= $berita['beritaAcaraTempat'] ?>,</b> yang bertnda tangan di bawah ini :<br><br>
+<b><?= $berita['beritaAcaraTempat'] ?>,</b> yang bertanda tangan di bawah ini :<br><br>
 <table class="table table-borderless" style="width: 100%">
 	<tr>
 		<td style="width: 50px" class="text-right">1.</td>

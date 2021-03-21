@@ -25,6 +25,14 @@ class Berita_acara extends BaseController
 		$this->render($data);
 	}
 
+	public function tambah()
+	{
+		$data['page'] = "berita_acara/tambah";
+		$data['pageIcon'] = "fas fa-user fa-sm fa-fw mr-2";
+		$data['pageTitle'] = "Tambah Berita Acara";
+		$this->render($data);
+	}
+
 	public function preview()
 	{
 		$get = [
