@@ -27,7 +27,7 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = ['tanggal'];
-	
+
 	/**
 	 * Constructor.
 	 *
@@ -39,13 +39,14 @@ class BaseController extends Controller
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
-		
+
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+		$this->db = \Config\Database::connect();
 	}
-	
+
 	public function render($data)
 	{
 		echo view('template/dynamic', $data);
