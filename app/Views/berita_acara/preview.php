@@ -10,7 +10,7 @@
 		body {
 			font-size: 12pt
 		}
-
+		
 		tr td {
 			padding: 0 !important;
 			margin: 0 !important;
@@ -114,8 +114,12 @@ Pihak I (pertama) telah melakukan
 		<td style="width: 50%" class="text-center">Pihak Kedua</td>
 	</tr>
 	<tr style="height: 100px">
-		<td></td>
-		<td></td>
+		<td class="text-center">
+			<img src="<?= $berita['ttd1'] ?>" alt="">
+		</td>
+		<td>
+			<img src="<?= $berita['ttd2'] ?>" alt="">
+		</td>
 	</tr>
 	<tr class="text-center">
 		<td>
@@ -130,7 +134,9 @@ Pihak I (pertama) telah melakukan
 		</td>
 	</tr>
 	<tr style="height: 100px">
-		<td colspan="2"></td>
+		<td colspan="2" class="text-center">
+			<img src="<?= $berita['ttd3'] ?>" alt="">
+		</td>
 	</tr>
 	<tr class="text-center">
 		<td colspan="2">

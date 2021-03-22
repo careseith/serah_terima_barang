@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://localhost/serah_terima_barang/';
+	public $baseURL = BASE;
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -303,7 +303,7 @@ class App extends BaseConfig
 	 * (empty string) means no SameSite attribute will be set on cookies. If
 	 * set to `None`, `$cookieSecure` must also be set.
 	 *
-       * @var string 'Lax'|'None'|'Strict'
+	 * @var string 'Lax'|'None'|'Strict'
 	 */
 	public $cookieSameSite = 'Lax';
 
@@ -320,7 +320,7 @@ class App extends BaseConfig
 	 * You can use both an array or a comma-separated list of proxy addresses,
 	 * as well as specifying whole subnets. Here are a few examples:
 	 *
-	 * Comma-separated:	'10.0.1.200,192.168.5.0/24'
+	 * Comma-separated:  '10.0.1.200,192.168.5.0/24'
 	 * Array: ['10.0.1.200', '192.168.5.0/24']
 	 *
 	 * @var string|string[]

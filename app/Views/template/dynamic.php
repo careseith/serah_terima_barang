@@ -12,6 +12,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@x.x.x/dist/select2-bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('public/template') ?>/dist/css/adminlte.min.css">
+	<script src="<?= base_url('public/template') ?>/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -76,7 +77,6 @@
 			<a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
 	</footer>
 </div>
-<script src="<?= base_url('public/template') ?>/plugins/jquery/jquery.min.js"></script>
 <script src="<?= base_url('public/template') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url('public/template') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('public/template') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

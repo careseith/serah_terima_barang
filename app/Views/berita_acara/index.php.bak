@@ -43,7 +43,7 @@
 								<td class="text-center">
 									<div class="btn-group text-nowrap" role="group" aria-label="Basic example">
 										<a href="<?= base_url('berita-acara/preview?beritaAcaraId=' . $b['beritaAcaraId']) ?>" role="button" class="btn btn-sm btn-outline-danger" target="_blank">Lihat Surat</a>
-										<a href="javascript:void(0)" data-beritaacaraid="<?= $b['beritaAcaraId'] ?>" data-toggle="modal" data-target="#tambahSignature" class="btn btn-sm btn-outline-primary tambah-signature">Buat TTD</a>
+										<a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-outline-primary">Buat TTD</a>
 									</div>
 								</td>
 							</tr>
@@ -57,36 +57,32 @@
 	</div>
 </div>
 
-<div class="modal fade" id="tambahSignature" tabindex="-1" aria-labelledby="tambahSignatureLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="tambahSignatureLabel">Atur Tdan Tangan</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Atur Tdan Tangan</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url('berita-acara/tambah-ttd') ?>" id="form-signature" method="post">
-				<div class="modal-body text-center">
-					<div class="mb-2">
-						<select name="spotTtd" class="form-control" required>
-							<option value="ttd1">TTD 1</option>
-							<option value="ttd2">TTD 2</option>
-							<option value="ttd3">TTD 3</option>
-						</select>
-					</div>
-					<canvas id="sig-canvas" width="620" height="160">
-						Get a better browser, bro.
-					</canvas>
-					<input type="text" name="signature" required>
-					<input type="text" name="beritaAcaraId" required>
+			<div class="modal-body text-center">
+				<div class="mb-2">
+					<select name="" id="" class="form-control">
+						<option value="ttd1">TTD 1</option>
+						<option value="ttd2">TTD 2</option>
+						<option value="ttd3">TTD 3</option>
+					</select>
 				</div>
-				<div class="modal-footer">
-					<button class="btn btn-primary btn-sm" id="sig-submitBtn">Simpan</button>
-					<button type="button" class="btn btn-warning btn-sm" id="sig-clearBtn">Hapus</button>
-					<button class="btn btn-danger btn-sm" type="button" data-dismiss="modal">Batal</button>
-				</div>
-			</form>
+				<canvas id="sig-canvas" width="620" height="160">
+					Get a better browser, bro.
+				</canvas>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary btn-sm" id="sig-submitBtn">Simpan</button>
+				<button class="btn btn-warning btn-sm" id="sig-clearBtn">Hapus</button>
+				<button class="btn btn-danger btn-sm" type="button" data-dismiss="modal">Batal</button>
+			</div>
 		</div>
 	</div>
 </div>
@@ -94,11 +90,6 @@
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
 		let table = $("table").DataTable();
-
-		$("a.tambah-signature").on('click', function () {
-			let beritaacaraid = $(this).data('beritaacaraid')
-			$("form#form-signature input[name=beritaAcaraId]").val(beritaacaraid)
-		})
 
 		window.requestAnimFrame = (function (callback) {
 			return window.requestAnimationFrame ||
@@ -228,7 +219,7 @@
 		}, false);
 		submitBtn.addEventListener("click", function (e) {
 			let dataUrl = canvas.toDataURL();
-			$("form#form-signature input[name=signature]").val(dataUrl)
+			console.log(dataUrl)
 		}, false);
 	})
 </script>

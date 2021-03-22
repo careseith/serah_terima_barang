@@ -76,4 +76,17 @@ class Berita_acara extends BaseController
 		$data['barang'] = $this->M_berita_acara_barang->where($get)->findAll();
 		echo view("berita_acara/preview", $data);
 	}
+
+	public function tambahTtd()
+	{
+		$data = $this->request->getPost();
+		$update[$data['spotTtd']] = $data['signature'];
+		try {
+			$this->db->transStart();
+			$this->M_berita_acara->update($data['beritaAcaraId'], $update);
+			$this->db->transComplete();
+		} catch (Exception $error) {
+			echo $error->getMessage();
+		}
+	}
 }
